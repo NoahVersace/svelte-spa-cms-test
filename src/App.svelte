@@ -1,16 +1,15 @@
 <script lang="ts">
   import Tailwind from "./Tailwind.svelte";
-  import { Link, Route, Router } from "svelte-routing";
+  import { Link, Route, Router } from "svelte-navigator";
   import Test from "./Test.svelte";
   import Test2 from "./Test2.svelte";
-  export let url = "";
 </script>
 
 <Tailwind />
 
-<Router {url}>
+<Router>
   <div>
-    <Route path="home">
+    <Route path="">
       <Link to="/t1">T1</Link>
       <Link to="/t2">T2</Link>
     </Route>
