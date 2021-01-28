@@ -5,8 +5,14 @@
 </script>
 
 {#await loadNotion()}
-  loading
+  <div class="loading">Loading</div>
 {:then blocks}
   <Notion {blocks} />
 {/await}
-test
+
+<style>
+  .loading {
+    min-height: 100vh;
+    /* background: red; */
+  }
+</style>
