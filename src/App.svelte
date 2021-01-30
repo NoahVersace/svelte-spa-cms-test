@@ -3,26 +3,51 @@
   import Tailwindcss from "./Tailwindcss.svelte";
   import { Router, Route, Link } from "svelte-navigator";
   import Test1 from "./Test1.svelte";
-  import Test2 from "./Test2.svelte";
+  import Default2 from "./Default2.svelte";
+  import LoadingIndicator from "./LoadingIndicator.svelte";
+  import Async from "./Async.svelte";
 </script>
 
 <Tailwindcss />
-<ModeSwitcher />
 <Router>
-  <Link to=""><button>Home</button></Link>
-  <Link to="test-1"><button>Test1</button></Link>
-  <Link to="test-2"><button>Test2</button></Link>
-  <div class="w-100" />
-  <Route path="">Home</Route>
-  <Route path="test-1" component={Test1} />
-  <Route path="test-2" component={Test2} />
-</Router>
+  <LoadingIndicator />
+  <div class="p-5">
+    <h1 class="text-3xl">Preloading:</h1>
+    <div class="m-2" />
+    <Link
+      to="preload1"
+      class="bg-indigo-300 p-3 rounded hover:bg-indigo-400 inline-block"
+    >
+      Preload 1
+    </Link>
+    <Link
+      to="preload2"
+      class="bg-indigo-300 p-3 rounded hover:bg-indigo-400 inline-block"
+    >
+      Preload 2
+    </Link>
+    <div class="m-4" />
 
-<style>
-  button {
-    background: white;
-    color: black;
-    padding: 10px 30px;
-    margin: 5px 50px;
-  }
-</style>
+    <h1 class="text-3xl">Default:</h1>
+    <div class="m-2" />
+    <Link
+      to="default1"
+      class="bg-indigo-300 p-3 rounded hover:bg-indigo-400 inline-block"
+    >
+      Default 1
+    </Link>
+    <Link
+      to="default2"
+      class="bg-indigo-300 p-3 rounded hover:bg-indigo-400 inline-block"
+    >
+      Default 2
+    </Link>
+    <div class="m-4" />
+    <div class="w-100" />
+    <Route path="">Home</Route>
+    <Route path="default1" component={Test1} />
+    <Route path="default2" component={Default2} />
+    <Route path="preload1" preload={() => import("./Preload1.svelte")} />
+    <Route path="preload2" preload={() => import("./Preload2.svelte")} />
+  </div>
+</Router>
