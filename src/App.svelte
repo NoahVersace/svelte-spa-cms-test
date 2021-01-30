@@ -1,14 +1,16 @@
 <script lang="ts">
   import Tailwindcss from "./Tailwindcss.svelte";
   import { Router, Route, Link } from "svelte-navigator";
-  import Test1 from "./Test1.svelte";
+  import Default1 from "./Default1.svelte";
   import Default2 from "./Default2.svelte";
   import LoadingIndicator from "./LoadingIndicator.svelte";
+  import NavigationProgress from "./NavigationProgress.svelte";
 </script>
 
 <Tailwindcss />
 <Router>
-  <LoadingIndicator />
+  <!-- <LoadingIndicator /> -->
+  <NavigationProgress />
 
   <div class="p-5">
     <h1 class="text-3xl">Preloading:</h1>
@@ -44,7 +46,7 @@
     <div class="m-4" />
     <div class="w-100" />
     <Route path="">Home</Route>
-    <Route path="default1" component={Test1} />
+    <Route path="default1" component={Default1} />
     <Route path="default2" component={Default2} />
     <Route path="preload1" preload={() => import("./Preload1.svelte")} />
     <Route path="preload2" preload={() => import("./Preload2.svelte")} />

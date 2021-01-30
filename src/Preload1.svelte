@@ -7,4 +7,13 @@
   }
 </script>
 
+<script>
+  export let location;
+  export let navigate;
+</script>
+
+<h1>Test 123</h1>
+<header>test</header>
+
 <Notion {blocks} />
+<!-- {JSON.parse(blocks)} -->
