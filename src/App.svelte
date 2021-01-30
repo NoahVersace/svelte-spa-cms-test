@@ -1,16 +1,15 @@
 <script lang="ts">
-  import ModeSwitcher from "./ModeSwitcher.svelte";
   import Tailwindcss from "./Tailwindcss.svelte";
   import { Router, Route, Link } from "svelte-navigator";
   import Test1 from "./Test1.svelte";
   import Default2 from "./Default2.svelte";
   import LoadingIndicator from "./LoadingIndicator.svelte";
-  import Async from "./Async.svelte";
 </script>
 
 <Tailwindcss />
 <Router>
   <LoadingIndicator />
+
   <div class="p-5">
     <h1 class="text-3xl">Preloading:</h1>
     <div class="m-2" />

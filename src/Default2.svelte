@@ -1,7 +1,7 @@
 <script>
   import { notion, Notion } from "@noahsalvi/svelte-notion";
   const loadNotion = () =>
-    notion.fetchPage("4f20c8765bf84abbb96ae4aa7de04c32", window);
+    notion.fetchPage("8f2e3a91cb374fde8d7b608e82681f32", window);
 </script>
 
 {#await loadNotion()}
