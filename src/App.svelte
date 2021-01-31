@@ -3,7 +3,6 @@
   import { Router, Route, Link } from "svelte-navigator";
   import Default1 from "./Default1.svelte";
   import Default2 from "./Default2.svelte";
-  import LoadingIndicator from "./LoadingIndicator.svelte";
   import NavigationProgress from "./NavigationProgress.svelte";
 </script>
 

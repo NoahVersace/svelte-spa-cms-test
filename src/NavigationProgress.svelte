@@ -7,18 +7,32 @@
 
   $: if ($preloading) animate();
 
+  $: if (!$preloading && !ready) resolveComonenentLoaded();
+
   let ready = true;
   let hide = true;
   let value = tweened(0, { duration: 400, easing: cubicInOut });
 
+  let resolveComonenentLoaded;
+
   async function animate() {
     if (ready) {
+      ready = false;
       hide = false;
-      await value.set(0.2);
+
+      const componentLoaded = new Promise(
+        (res) => (resolveComonenentLoaded = res)
+      );
+      const firstSegment = value.set(0.2);
+      await Promise.all([componentLoaded, firstSegment]);
+
       await value.set(1);
+
       hide = true;
       await new Promise((res) => setTimeout(res, 200));
+
       value.set(0, { duration: 0 });
+      ready = true;
     }
   }
 </script>
