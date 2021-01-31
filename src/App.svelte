@@ -3,6 +3,7 @@
   import { Router, Route, Link } from "svelte-navigator";
   import Default1 from "./Default1.svelte";
   import Default2 from "./Default2.svelte";
+  import * as Preload2 from "./Preload2.svelte";
   import NavigationProgress from "./NavigationProgress.svelte";
 </script>
 
@@ -48,6 +49,6 @@
     <Route path="default1" component={Default1} />
     <Route path="default2" component={Default2} />
     <Route path="preload1" preload={() => import("./Preload1.svelte")} />
-    <Route path="preload2" preload={() => import("./Preload2.svelte")} />
+    <Route path="preload2" preload={() => Preload2} />
   </div>
 </Router>
