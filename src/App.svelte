@@ -5,6 +5,7 @@
   import Default2 from "./Default2.svelte";
   import * as Preload2 from "./Preload2.svelte";
   import NavigationProgress from "./NavigationProgress.svelte";
+  import SvelteUseFormExample from "./SvelteUseFormExample.svelte";
 </script>
 
 <Tailwindcss />
@@ -44,8 +45,16 @@
       Default 2
     </Link>
     <div class="m-4" />
+    <Link
+      to="svelte-use-form"
+      class="bg-indigo-300 p-3 rounded hover:bg-indigo-400 inline-block"
+    >
+      svelte-use-form (npm)
+    </Link>
+    <div class="m-4" />
     <div class="w-100" />
     <Route path="">Home</Route>
+    <Route path="svelte-use-form" component={SvelteUseFormExample} />
     <Route path="default1" component={Default1} />
     <Route path="default2" component={Default2} />
     <Route path="preload1" preload={() => import("./Preload1.svelte")} />
